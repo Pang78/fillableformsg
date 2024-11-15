@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced FormSG Prefilling System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Enhanced FormSG Prefilling System</h1>
+        <button id="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    </header>
+
+    <nav>
+        <button onclick="switchMode('construct')">Construct Mode</button>
+        <button onclick="switchMode('deconstruct')">Deconstruct Mode</button>
+        <button onclick="showHelp()">Help</button>
+    </nav>
+
+    <main>
+        <section id="constructMode" class="mode-content">
+            <h2>Construct Mode</h2>
+            <label for="constructFormUrl">Form URL:</label>
+            <input type="text" id="constructFormUrl" placeholder="Enter form URL here">
+
+            <div class="file-upload">
+                <input type="file" id="dataFile" accept=".xlsx,.xls,.csv">
+                <label for="dataFile">Drag and drop your file here, or click to select</label>
+            </div>
+
+            <div class="mapping-interface">
+                <div class="uploaded-columns">
+                    <h3>Uploaded Columns</h3>
+                    <ul id="uploadedColumnsList"></ul>
+                </div>
+                <div class="formsg-fields">
+                    <h3>FormSG Fields</h3>
+                    <ul id="formsgFieldsList"></ul>
+                </div>
+            </div>
+
+            <div class="template-controls">
+                <button onclick="saveTemplate()">Save Template</button>
+                <button onclick="loadTemplate()">Load Template</button>
+            </div>
+
+            <div class="generate-controls">
+                <button onclick="previewUrl()">Preview</button>
+                <button onclick="generateBulkUrls()">Generate Bulk URLs</button>
+            </div>
+
+            <div id="constructOutput" class="output"></div>
+        </section>
+
+        <section id="deconstructMode" class="mode-content">
+            <h2>Deconstruct Mode</h2>
+            <label for="deconstructFormUrl">Pre-filled URL:</label>
+            <input type="text" id="deconstructFormUrl" placeholder="Paste your pre-filled URL here">
+            <div id="deconstructOutput" class="output"></div>
+        </section>
+    </main>
+
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Help Guide</h2>
+            <p>This is a comprehensive guide on how to use the Enhanced FormSG Prefilling System.</p>
+            <!-- Add more help content here -->
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
